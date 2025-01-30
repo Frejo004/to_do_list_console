@@ -43,25 +43,22 @@ class ToDoList {
   }
 
   //Marquer une tâche comme terminée
-  void markTaskAsDone(String description) {
-    Task? task = taches.firstWhere((task) => task.description == description, orElse: () => Task("", false));
-    if (task.description.isEmpty) {
+  void markTaskAsDone( int index) {
+    if (index < 0 || index >= taches.length) {
       print("La tâche n'existe pas");
     } else {
-      task.isDone = true;
-      print("Tâche marquée comme terminée : $description");
+      taches[index].isDone = true;
+      print("Tâche marquée comme terminée : ${taches[index].description}");
     }
   }
 
   //Supprimer une tâche
-  void deleteTask(String description) {
-    Task? task = taches.firstWhere((task) => task.description == description, orElse: () => Task("", false));
-    if (task.description.isEmpty) {
+  void deleteTask(int index) {
+    if (index < 0 || index >= taches.length) {
       print("La tâche n'existe pas");
     } else {
-      taches.remove(task);
-      print("Tâche supprimée : $description");
-    }
+      taches.removeAt(index);
+      print("Tâche supprimée");
   }
-
+  }
 }
