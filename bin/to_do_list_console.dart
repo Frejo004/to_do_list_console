@@ -1,15 +1,14 @@
-import 'package:to_do_list_console/to_do_list_console.dart' as to_do_list_console;
 import 'dart:io';
+
 import 'package:to_do_list_console/to_do_list_console.dart';
 
-void main(List<String> arguments) {
+import 'to_do_list_console.dart' as to_do_list_console;
+import 'package:to_do_list_console/to_do_list_console.dart' as to_do_list_console;
 
-  // print('Hello world: ${to_do_list_console.calculate()}!');
-  Task task = Task("description", false);
+void main() {
+  var toDoList = to_do_list_console.ToDoList();
 
-  
   while (true) {
-    print("\n--- To-Do List ---");
     print("1. Afficher les tâches");
     print("2. Ajouter une tâche");
     print("3. Marquer une tâche comme terminée");
@@ -18,32 +17,31 @@ void main(List<String> arguments) {
     print("Choisissez une option :");
     print("Que voulez-vous faire ?");
 
-     String choix = stdin.readLineSync()!;
+    int choix = int.parse(stdin.readLineSync()!);
 
     switch (choix) {
-      case '1':
-        to_do_list_console.ToDoList().listTasks();
+      case 1:
+        toDoList.listTasks();
         break;
-      case '2':
+      case 2:
         print("Entrez la description de la tâche :");
-        String description = stdin.readLineSync()!;
-        to_do_list_console.ToDoList().addTask(description);
+        String? description = stdin.readLineSync();
+        toDoList.addTask(description!);
         break;
-      case '3':
+      case 3:
         print("Entrez le numéro de la tâche à marquer comme terminée :");
         int index = int.parse(stdin.readLineSync()!);
-        to_do_list_console.ToDoList().markTaskAsDone(index);
+        toDoList.markTaskAsDone(index);
         break;
-      case '4':
+      case 4:
         print("Entrez le numéro de la tâche à supprimer :");
         int index = int.parse(stdin.readLineSync()!);
-        to_do_list_console.ToDoList().deleteTask(index);
+        toDoList.deleteTask(index);
         break;
-      case '5':
-        print("Au revoir !");
+      case 5:
         return;
       default:
-        print("Choix invalide");
+        print("Option invalide. Veuillez réessayer.");
     }
   }
 }
