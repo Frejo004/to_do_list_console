@@ -3,7 +3,7 @@ int calculate() {
   return 6 * 7;
 }
 
-
+// la classe Task pour représenter une tâche
 class Task {
   String Description;
   bool isDone;
