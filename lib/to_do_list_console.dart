@@ -39,8 +39,9 @@ class ToDoList {
     if (taches.isEmpty) {
       print("Aucune tâche n'a été ajoutée");
     } else {
-      for (var task in taches) {
-        print(task);
+      for (int i = 0; i < taches.length; i++) {
+        String status = taches[i].isDone ? "terminée" : "en cours";
+        print("$i. ${taches[i].description} - $status");
       }
     }
   }
@@ -67,5 +68,23 @@ class ToDoList {
       print("Tâche supprimée");
   }
   listTasks();
+  }
+
+  //modiifier une tâche
+  void modifTask(int index, String description) {
+    if (index < 0 || index >= taches.length) {
+      print("La tâche n'existe pas");
+    } else {
+      taches[index].description = description;
+      print("Tâche modifiée");
+    }
+    listTasks();
+  }
+
+  //Supprimer toutes les tâches
+  void deleteAllTasks() {
+    taches.clear();
+    print("Toutes les tâches ont été supprimées");
+    listTasks();
   }
 }
