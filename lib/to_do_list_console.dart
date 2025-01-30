@@ -41,4 +41,17 @@ class ToDoList {
       }
     }
   }
+
+  //Marquer une tâche comme terminée
+  void markTaskAsDone(String description) {
+    Task? task = taches.firstWhere((task) => task.description == description, orElse: () => Task("", false));
+    if (task.description.isEmpty) {
+      print("La tâche n'existe pas");
+    } else {
+      task.isDone = true;
+      print("Tâche marquée comme terminée : $description");
+    }
+  }
+
+  
 }
