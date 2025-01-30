@@ -26,7 +26,8 @@ class ToDoList {
 
   //Ajouter une tâche
     void addTask(String description) {
-    taches.add(Task(description, false));
+    Task task = Task(description, false);
+    taches.add(task);
     print("Tâche ajoutée : $description");
   }
 
