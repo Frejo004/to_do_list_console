@@ -5,32 +5,29 @@ int calculate() {
 
 // la classe Task pour représenter une tâche
 class Task {
-  String Description;
+  String description;
   bool isDone;
 
-  Task(this.Description, this.isDone);
+  Task(this.description, this.isDone);
 
   @override
   String toString() {
     String etat = isDone ? "faite" : "non faite";
 
-    return "$Description ($etat)";
+    return "$description ($etat)";
 }
 }
 
 
 // la classe ToDoList pour gérer toutes les méthodes de notre application
 class ToDoList {
-
+  
+  List<Task> taches = [];
 
   //Ajouter une tâche
-
-  void ajouterTache(String taches) {
-    print("Entrez la tâche à ajouter : ");
-    taches.add(taches);
+    void addTask(String description) {
+    taches.add(Task(description, false));
+    print("Tâche ajoutée : $description");
   }
-}
 
-extension on String {
-  void add(String taches) {}
 }
