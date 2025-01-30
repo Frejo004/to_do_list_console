@@ -18,6 +18,8 @@ class Task {
 }
 }
 
+
+// la classe ToDoList pour gérer toutes les méthodes de notre application
 class ToDoList {
 
 
