@@ -9,13 +9,17 @@ void main() {
   var toDoList = to_do_list_console.ToDoList();
 
   while (true) {
+    print("Bienvenue dans votre liste de tâches !\n");
     print("1. Afficher les tâches");
     print("2. Ajouter une tâche");
-    print("3. Marquer une tâche comme terminée");
-    print("4. Supprimer une tâche");
-    print("5. Quitter");
-    print("Choisissez une option :");
-    print("Que voulez-vous faire ?");
+    print("3. Modifier une tâche");
+    print("4. Marquer une tâche comme terminée");
+    print("5. Supprimer une tâche");
+    print("6. Supprimer toutes les tâches");
+    print("7. Quitter");
+    print("Choisissez une option :\n");
+
+    print("Que voulez-vous faire ?\n");
 
     int choix = int.parse(stdin.readLineSync()!);
 
@@ -26,19 +30,25 @@ void main() {
       case 2:
         print("Entrez la description de la tâche :");
         String? description = stdin.readLineSync();
-        toDoList.addTask(description!);
+        //Vérifier si la description n'est pas vide
+        if (description != null && description.isNotEmpty && description.trim() != "") {
+          toDoList.addTask(description);
+        }
+        else{
+          print("La description ne peut pas être vide");
+        }
         break;
-      case 3:
+      case 4:
         print("Entrez le numéro de la tâche à marquer comme terminée :");
         int index = int.parse(stdin.readLineSync()!);
         toDoList.markTaskAsDone(index);
         break;
-      case 4:
+      case 5:
         print("Entrez le numéro de la tâche à supprimer :");
         int index = int.parse(stdin.readLineSync()!);
         toDoList.deleteTask(index);
         break;
-      case 5:
+      case 7:
         return;
       default:
         print("Option invalide. Veuillez réessayer.");
