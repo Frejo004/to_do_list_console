@@ -30,4 +30,15 @@ class ToDoList {
     print("Tâche ajoutée : $description");
   }
 
+  //Lister les tâches
+  void listTasks(){
+    print("Liste des tâches efféctuées :");
+    if (taches.isEmpty) {
+      print("Aucune tâche n'a été ajoutée");
+    } else {
+      for (var task in taches) {
+        print(task);
+      }
+    }
+  }
 }
