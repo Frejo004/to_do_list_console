@@ -29,12 +29,13 @@ class ToDoList {
     Task task = Task(description, false);
     taches.add(task);
     print("Tâche ajoutée : $description");
+    listTasks();
   }
 
   //Lister les tâches
   void listTasks(){
     print("Liste des tâches efféctuées :");
-    //Vérifier si la liste est vide
+    //Vérifier si la liste est vide+++
     if (taches.isEmpty) {
       print("Aucune tâche n'a été ajoutée");
     } else {
@@ -54,6 +55,7 @@ class ToDoList {
       taches[index].isDone = true;
       print("Tâche marquée comme terminée : ${taches[index].description}");
     }
+    listTasks();
   }
 
   //Supprimer une tâche
@@ -64,5 +66,6 @@ class ToDoList {
       taches.removeAt(index);
       print("Tâche supprimée");
   }
+  listTasks();
   }
 }
