@@ -38,6 +38,18 @@ void main() {
           print("La description ne peut pas être vide");
         }
         break;
+      case 3:
+        print("Entrez le numéro de la tâche à modifier :");
+        int index = int.parse(stdin.readLineSync()!);
+        print("Entrez la nouvelle description de la tâche :");
+        String description = stdin.readLineSync()!;
+        if (description.isNotEmpty && description.trim() != "") {
+          toDoList.modifTask(index, description);
+        }
+        else {
+          print("La description ne peut pas être vide");
+        }
+        break;
       case 4:
         print("Entrez le numéro de la tâche à marquer comme terminée :");
         int index = int.parse(stdin.readLineSync()!);
@@ -47,6 +59,19 @@ void main() {
         print("Entrez le numéro de la tâche à supprimer :");
         int index = int.parse(stdin.readLineSync()!);
         toDoList.deleteTask(index);
+        break;
+        case 6:
+        print("Voulez-vous vraiment supprimer toutes les tâches ? (oui/non)");
+        String reponse = stdin.readLineSync()!; 
+        if (reponse == "oui") {
+          toDoList.deleteAllTasks();
+        }
+        else if (reponse == "non") {
+          print("Opération annulée");
+        }
+        else {
+          print("Réponse invalide");
+        }
         break;
       case 7:
         return;
