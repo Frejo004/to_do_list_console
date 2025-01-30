@@ -34,6 +34,7 @@ class ToDoList {
   //Lister les tâches
   void listTasks(){
     print("Liste des tâches efféctuées :");
+    //Vérifier si la liste est vide
     if (taches.isEmpty) {
       print("Aucune tâche n'a été ajoutée");
     } else {
@@ -45,9 +46,11 @@ class ToDoList {
 
   //Marquer une tâche comme terminée
   void markTaskAsDone( int index) {
+    //Vérifier si l'index est valide
     if (index < 0 || index >= taches.length) {
       print("La tâche n'existe pas");
     } else {
+      //Marquer la tâche comme terminée
       taches[index].isDone = true;
       print("Tâche marquée comme terminée : ${taches[index].description}");
     }
