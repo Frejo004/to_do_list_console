@@ -53,5 +53,15 @@ class ToDoList {
     }
   }
 
-  
+  //Supprimer une tâche
+  void deleteTask(String description) {
+    Task? task = taches.firstWhere((task) => task.description == description, orElse: () => Task("", false));
+    if (task.description.isEmpty) {
+      print("La tâche n'existe pas");
+    } else {
+      taches.remove(task);
+      print("Tâche supprimée : $description");
+    }
+  }
+
 }
